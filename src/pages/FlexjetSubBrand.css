@@ -1,0 +1,124 @@
+/* FlexjetSubBrand.css */
+
+:root {
+  --flexjet-gold: #b39359; /* El dorado característico */
+  --flexjet-black: #000000;
+  --flexjet-white: #ffffff;
+  --flexjet-gray: #1a1a1a;
+  --font-serif: 'Playfair Display', serif; /* Para titulares elegantes */
+  --font-sans: 'Inter', sans-serif; /* Para legibilidad en cuerpo */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--flexjet-black);
+  color: var(--flexjet-white);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header / Nav */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(179, 147, 89, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  color: var(--flexjet-gold);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-links a {
+  color: var(--flexjet-white);
+  text-decoration: none;
+  margin-left: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--flexjet-gold);
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80'); /* Placeholder */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--flexjet-gold);
+}
+
+/* Botones Estilo Flexjet */
+.btn-primary {
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background-color: transparent;
+  color: var(--flexjet-white);
+  border: 1px solid var(--flexjet-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--flexjet-gold);
+  color: var(--flexjet-black);
+}
+
+/* Grid de Contenido */
+.content-section {
+  padding: 5rem 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.content-text h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  border-left: 3px solid var(--flexjet-gold);
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-text p {
+  line-height: 1.8;
+  color: #ccc;
+}

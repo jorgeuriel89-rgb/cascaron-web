@@ -1,0 +1,47 @@
+:root {
+  /* Colores modo claro */
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #f5f5f5;
+  --light-text-primary: #333333;
+  --light-text-secondary: #666666;
+  --light-accent: #646cff;
+  
+  /* Colores modo oscuro */
+  --dark-bg-primary: #1a1a1a;
+  --dark-bg-secondary: #2d2d2d;
+  --dark-text-primary: #ffffff;
+  --dark-text-secondary: #b3b3b3;
+  --dark-accent: #747bff;
+  
+  /* Variables de tema (se actualizan dinámicamente) */
+  --bg-primary: var(--light-bg-primary);
+  --bg-secondary: var(--light-bg-secondary);
+  --text-primary: var(--light-text-primary);
+  --text-secondary: var(--light-text-secondary);
+  --accent: var(--light-accent);
+  
+  /* Tipografía */
+  --font-primary: system-ui, -apple-system, sans-serif;
+  
+  /* Espaciado */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Bordes */
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  
+  /* Transiciones */
+  --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --accent: var(--dark-accent);
+}

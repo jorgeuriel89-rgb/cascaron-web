@@ -1,0 +1,238 @@
+/* Temas personalizados y estilos específicos del tema */
+
+/* Variables específicas para cada tema */
+[data-theme="light"] {
+  /* Colores de fondo */
+  --bg-gradient-start: #f5f7fa;
+  --bg-gradient-end: #c3cfe2;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --footer-bg: #f8f9fa;
+  
+  /* Colores de texto */
+  --heading-color: #2c3e50;
+  --link-color: #646cff;
+  --link-hover: #535bf2;
+  
+  /* Colores de borde */
+  --border-color: #e0e0e0;
+  
+  /* Colores de botones */
+  --button-primary-bg: #646cff;
+  --button-primary-text: #ffffff;
+  --button-primary-hover: #535bf2;
+  
+  --button-secondary-bg: #f1f1f1;
+  --button-secondary-text: #333333;
+  --button-secondary-hover: #e0e0e0;
+  
+  /* Colores de input */
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --input-focus: #646cff;
+  
+  /* Colores de alerta */
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --error-color: #f44336;
+  --info-color: #2196f3;
+}
+
+[data-theme="dark"] {
+  /* Colores de fondo */
+  --bg-gradient-start: #1a1a2e;
+  --bg-gradient-end: #16213e;
+  --card-bg: rgba(30, 30, 40, 0.9);
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --header-bg: rgba(20, 20, 30, 0.95);
+  --footer-bg: #1e1e2a;
+  
+  /* Colores de texto */
+  --heading-color: #e1e1e1;
+  --link-color: #747bff;
+  --link-hover: #8b94ff;
+  
+  /* Colores de borde */
+  --border-color: #3d3d4a;
+  
+  /* Colores de botones */
+  --button-primary-bg: #747bff;
+  --button-primary-text: #ffffff;
+  --button-primary-hover: #8b94ff;
+  
+  --button-secondary-bg: #2d2d3a;
+  --button-secondary-text: #f1f1f1;
+  --button-secondary-hover: #3d3d4a;
+  
+  /* Colores de input */
+  --input-bg: #2d2d3a;
+  --input-border: #4d4d5a;
+  --input-focus: #747bff;
+  --input-text: #f1f1f1;
+  
+  /* Colores de alerta */
+  --success-color: #66bb6a;
+  --warning-color: #ffb74d;
+  --error-color: #ef5350;
+  --info-color: #42a5f5;
+}
+
+/* Estilos de componentes específicos del tema */
+.header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--border-color);
+  padding: var(--spacing-lg) 0;
+  margin-top: auto;
+  transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+/* Tarjetas */
+.feature-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s, box-shadow 0.2s, background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+  color: var(--heading-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Enlaces */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.btn-primary:hover {
+  background-color: var(--button-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.btn-secondary:hover {
+  background-color: var(--button-secondary-hover);
+}
+
+/* Inputs */
+input, textarea, select {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-speed);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.1);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Animaciones de transición de tema */
+* {
+  transition: background-color var(--transition-speed), 
+              color var(--transition-speed),
+              border-color var(--transition-speed),
+              box-shadow var(--transition-speed);
+}
+
+/* Estilos específicos para el tema oscuro en componentes */
+[data-theme="dark"] .feature-card {
+  background: linear-gradient(145deg, var(--card-bg), rgba(40, 40, 50, 0.9));
+}
+
+[data-theme="dark"] .header {
+  border-bottom-color: var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] img {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+/* Efectos de glassmorphism */
+.glass-effect {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+/* Gradientes específicos por tema */
+[data-theme="light"] .gradient-bg {
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+}
+
+[data-theme="dark"] .gradient-bg {
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+}
+
+/* Clases de utilidad para el tema */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.border-theme { border-color: var(--border-color); }
