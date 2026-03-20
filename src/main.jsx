@@ -1,24 +1,10 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
-import { ThemeProvider } from './contexts/ThemeContext'
-import { LanguageProvider } from './contexts/LanguageContext'
-import AppRoutes from './routes/AppRoutes'
-import { BrowserRouter } from 'react-router-dom';
-
+import ReactDOM from 'react-dom/client'
 import App from './App'
-import './styles/global.css'
+// Quitamos los imports que causan error (ThemeProvider, LanguageProvider y AppRoutes)
 
-const container = document.getElementById('app')
-const root = createRoot(container)
-
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <LanguageProvider>
-      <ThemeProvider>
-        <BrowserRouter>
-        <App />
-        </BrowserRouter>
-      </ThemeProvider>
-    </LanguageProvider>
+      <App />
   </React.StrictMode>
 )

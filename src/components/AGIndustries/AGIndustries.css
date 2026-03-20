@@ -1,0 +1,238 @@
+/* ============================================================
+   1. CONFIGURACIÓN GLOBAL (RESET)
+   ============================================================ */
+:root {
+  --white-100: rgba(240, 240, 250, 1);
+  --white-70: rgba(240, 240, 250, .7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll !important;
+}
+
+/* ============================================================
+   2. BARRA DE NAVEGACIÓN (NAVBAR)
+   ============================================================ */
+.sx-nav, .sx-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  background: transparent;
+}
+
+.sx-nav-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- LOGO --- */
+.sx-logo img, .sx-logo-img, .sx-logo svg {
+  height: 130px !important; /* Mantenido como pediste */
+  width: auto;
+  cursor: pointer;
+}
+/* ============================================================
+  BARRA DE NAVEGACIÓN 
+   ============================================================ */
+
+/* 1. Aseguramos que el contenedor sea flexible y horizontal */
+.sx-nav-menu, .sx-menu {
+  display: flex !important;
+  flex-direction: row !important; 
+  align-items: center !important;
+  gap: 25px !important; /* Espaciado entre cada palabra */
+  list-style: none;
+}
+
+.sx-menu a, 
+.sx-nav-menu a, 
+.sx-nav-link,
+.sx-nav-item-container a {
+  display: inline-block !important; /* Evita que el flex interno mueva el texto */
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 13px !important; /* Tamaño SpaceX */
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  white-space: nowrap !important; /* Evita que "Vuelos Espaciales" se rompa en dos líneas */
+}
+
+/* 3. El botón de la derecha (Próximos Lanzamientos) */
+.sx-selector, .sx-btn-top {
+  display: inline-block !important;
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,0.5) !important;
+  color: #fff !important;
+  padding: 8px 15px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+}
+
+/* ============================================================
+   3. SECCIÓN HERO Y TÍTULOS
+   ============================================================ */
+.sx-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  overflow: hidden;
+}
+
+.sx-bg-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+
+.sx-bg-media {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.sx-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 100%);
+  z-index: 1;
+}
+
+.sx-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+/* Títulos principales */
+.sx-hero-content h1, .sx-hero-content h2 {
+  font-size: 3rem !important; /* Grande y potente */
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+/* Párrafos de descripción */
+.sx-hero-content p {
+  font-size: 16px !important;
+  line-height: 1.6;
+  opacity: 0.9;
+  text-transform: none;
+  margin-bottom: 30px;
+}
+
+.sx-btn-ghost {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 15px 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sx-btn-ghost:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ============================================================
+   4. BARRA INFERIOR (FOOTER)
+   ============================================================ */
+.sx-footer {
+  background-color: #000;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sx-footer-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Texto del footer y copyright */
+.sx-copyright, .sx-footer-links a {
+  color: #fff;
+  font-size: 12px !important; /* Más pequeño para balancear */
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.sx-copyright { color: #888; }
+
+.sx-footer-links {
+  display: flex;
+  gap: 25px;
+}
+
+/* ============================================================
+   5. COMPONENTES EXTRA (DROPDOWNS Y SCROLL)
+   ============================================================ */
+.sx-nav-item-container { position: relative; }
+
+.sx-arrow { font-size: 10px; }
+
+.sx-dropdown-bar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0,0,0,0.9);
+  padding: 15px 0;
+  min-width: 220px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.sx-dropdown-bar.show {
+  visibility: visible;
+  background: transparent !important;
+  opacity: 1;
+}
+
+.sx-dropdown-bar a {
+  padding: 12px 20px;
+  font-size: 12px !important;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 10px;
+  border: 3px solid #000;
+}
