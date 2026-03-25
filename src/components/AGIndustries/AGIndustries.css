@@ -236,3 +236,275 @@ html, body {
   border-radius: 10px;
   border: 3px solid #000;
 }
+
+/* ============================================================
+   RESPONSIVE MÓVIL — 
+   ============================================================ */
+
+/* ============================================================
+   HAMBURGER BUTTON (solo visible en móvil)
+   ============================================================ */
+.sx-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1100;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.sx-hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  transform-origin: center;
+}
+
+/* Animación a X cuando el menú está abierto */
+.sx-hamburger.is-open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.sx-hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.sx-hamburger.is-open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ============================================================
+   TABLET (≤ 1024px) — ajustes suaves
+   ============================================================ */
+@media (max-width: 1024px) {
+  .sx-nav, .sx-navbar {
+    padding: 0 30px;
+  }
+
+  .sx-menu a,
+  .sx-nav-menu a,
+  .sx-nav-link,
+  .sx-nav-item-container a {
+    font-size: 11px !important;
+  }
+
+  .sx-nav-menu, .sx-menu {
+    gap: 18px !important;
+  }
+
+  .sx-hero-content h1,
+  .sx-hero-content h2 {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* ============================================================
+   MÓVIL (≤ 768px) — menú colapsable tipo drawer
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* --- Navbar --- */
+  .sx-nav, .sx-navbar {
+    padding: 0 20px;
+    height: 56px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Logo más pequeño */
+  .sx-logo img, .sx-logo-img, .sx-logo svg {
+    height: 70px !important;
+  }
+
+  /* Mostrar hamburguesa, ocultar botón superior */
+  .sx-hamburger {
+    display: flex;
+  }
+
+  .sx-selector, .sx-btn-top {
+    display: none !important;
+  }
+
+  /* --- Menú: drawer lateral que cae desde arriba --- */
+  .sx-nav-menu, .sx-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 56px);
+    background: rgba(0, 0, 0, 0.97);
+    padding: 30px 25px 40px;
+    overflow-y: auto;
+
+    /* Estado inicial: oculto */
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease;
+    z-index: 999;
+  }
+
+  /* Estado abierto — añade clase .is-open con JS */
+  .sx-nav-menu.is-open, .sx-menu.is-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Links del menú en móvil */
+  .sx-menu a,
+  .sx-nav-menu a,
+  .sx-nav-link,
+  .sx-nav-item-container a {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    padding: 18px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    width: 100%;
+    display: block !important;
+  }
+
+  .sx-nav-item-container {
+    width: 100%;
+  }
+
+  /* Dropdowns: se despliegan abajo en móvil */
+  .sx-dropdown-bar {
+    position: static;
+    background: rgba(255, 255, 255, 0.04) !important;
+    padding: 0 0 0 15px;
+    min-width: unset;
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .sx-dropdown-bar.show {
+    max-height: 300px;
+    background: rgba(255, 255, 255, 0.04) !important;
+  }
+
+  .sx-dropdown-bar a {
+    font-size: 13px !important;
+    padding: 14px 10px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    opacity: 0.75;
+  }
+
+  /* Botón de lanzamientos al fondo del drawer */
+  .sx-menu .sx-selector,
+  .sx-nav-menu .sx-selector {
+    display: inline-block !important;
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px !important;
+    font-size: 13px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* --- Hero --- */
+  .sx-hero {
+    padding: 0 6%;
+    align-items: flex-end;
+    padding-bottom: 80px;
+  }
+
+  .sx-hero-content {
+    max-width: 100%;
+  }
+
+  .sx-hero-content h1,
+  .sx-hero-content h2 {
+    font-size: 2rem !important;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+  }
+
+  .sx-hero-content p {
+    font-size: 14px !important;
+    margin-bottom: 25px;
+  }
+
+  .sx-btn-ghost {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+  }
+
+  /* --- Footer --- */
+  .sx-footer-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .sx-footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+/* ============================================================
+   MÓVIL PEQUEÑO (≤ 380px)
+   ============================================================ */
+@media (max-width: 380px) {
+  .sx-hero-content h1,
+  .sx-hero-content h2 {
+    font-size: 1.6rem !important;
+  }
+
+  .sx-nav, .sx-navbar {
+    padding: 0 15px;
+  }
+}
+
+/* ============================================================
+   JS MÍNIMO REQUERIDO
+   Pega este script antes de </body> en tu HTML
+   ============================================================
+
+<button class="sx-hamburger" id="sx-hamburger" aria-label="Abrir menú">
+  <span></span><span></span><span></span>
+</button>
+
+<script>
+  const hamburger = document.getElementById('sx-hamburger');
+  const menu = document.querySelector('.sx-menu') || document.querySelector('.sx-nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('is-open');
+    menu.classList.toggle('is-open');
+    document.body.style.overflow = menu.classList.contains('is-open') ? 'hidden' : '';
+  });
+
+  // Cierra el menú al hacer clic en un link
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('is-open');
+      menu.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+
+   ============================================================ */
